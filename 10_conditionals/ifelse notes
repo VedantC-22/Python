@@ -1,0 +1,423 @@
+## **Python `if-else` Statement: A Complete Guide**
+
+### **1️⃣ Introduction**
+The `if-else` statement in Python is used for decision-making. It allows the program to execute a certain block of code **only if a specific condition is met**. If the condition is **False**, the program executes another block of code (inside `else`).
+
+---
+
+### **2️⃣ Syntax of `if-else` in Python**
+```python
+if condition:
+    # Code executed if condition is True
+else:
+    # Code executed if condition is False
+```
+
+🔹 **Example:**
+```python
+age = 18
+
+if age >= 18:
+    print("You are eligible to vote.")
+else:
+    print("You are not eligible to vote.")
+```
+**Output:**  
+```
+You are eligible to vote.
+```
+
+---
+
+### **3️⃣ `if-elif-else` (Multiple Conditions)**
+When multiple conditions need to be checked, we use `elif` (short for "else if").
+
+#### **Syntax:**
+```python
+if condition1:
+    # Code for condition1
+elif condition2:
+    # Code for condition2
+elif condition3:
+    # Code for condition3
+else:
+    # Code if none of the above conditions are True
+```
+
+🔹 **Example:**
+```python
+marks = 85
+
+if marks >= 90:
+    print("Grade: A")
+elif marks >= 75:
+    print("Grade: B")
+elif marks >= 60:
+    print("Grade: C")
+else:
+    print("Grade: F")
+```
+**Output:**  
+```
+Grade: B
+```
+
+---
+
+### **4️⃣ Nested `if-else` (If inside If)**
+You can place an `if-else` statement inside another `if-else`.
+
+🔹 **Example:**
+```python
+num = 10
+
+if num > 0:
+    if num % 2 == 0:
+        print("Positive Even Number")
+    else:
+        print("Positive Odd Number")
+else:
+    print("Negative Number")
+```
+**Output:**  
+```
+Positive Even Number
+```
+
+---
+
+### **5️⃣ Short-Hand `if-else` (Ternary Operator)**
+Python allows writing an `if-else` in a single line.
+
+#### **Syntax:**
+```python
+value_if_true if condition else value_if_false
+```
+
+🔹 **Example:**
+```python
+num = 5
+result = "Positive" if num > 0 else "Negative"
+print(result)
+```
+**Output:**  
+```
+Positive
+```
+
+---
+
+### **6️⃣ Real-World Use Cases of `if-else`**
+✅ **Authentication System**:
+```python
+password = "admin123"
+
+user_input = input("Enter password: ")
+
+if user_input == password:
+    print("Access Granted")
+else:
+    print("Access Denied")
+```
+
+✅ **Discount Calculation in Shopping Cart**:
+```python
+total_amount = 1200
+
+if total_amount > 1000:
+    discount = total_amount * 0.1
+else:
+    discount = total_amount * 0.05
+
+print("Discount Applied:", discount)
+```
+
+---
+
+### **7️⃣ Common Mistakes & Debugging**
+❌ **Using `=` Instead of `==`**  
+```python
+if num = 10:  # ❌ Wrong (SyntaxError)
+```
+✅ **Correct:**
+```python
+if num == 10:  # ✅ Right
+```
+
+❌ **Forgetting Indentation**  
+```python
+if True:
+print("Hello")  # ❌ Wrong (IndentationError)
+```
+✅ **Correct:**
+```python
+if True:
+    print("Hello")  # ✅ Right
+```
+
+---
+
+### **8️⃣ Top Interview Questions on `if-else`**
+💡 **Q1: How does Python handle multiple conditions inside an `if` statement?**  
+**A:** Python evaluates conditions from left to right using **logical operators (`and`, `or`, `not`)**.
+
+💡 **Q2: Can `if-else` be used without `else`?**  
+**A:** Yes, `else` is optional. If it's not provided and the `if` condition is `False`, nothing happens.
+
+💡 **Q3: What is the difference between `if-elif` and multiple `if` statements?**  
+**A:** `if-elif` ensures **only one** block executes, while multiple `if` statements may execute **more than one block**.
+
+---
+
+### **9️⃣ Summary**
+| Feature | Description |
+|---------|-------------|
+| `if`    | Checks a condition and executes a block if True |
+| `if-else` | Executes different blocks for True and False |
+| `if-elif-else` | Checks multiple conditions |
+| Nested `if` | `if` inside another `if` |
+| Ternary Operator | Short-hand `if-else` |
+
+### **Additional Topics on `if-else` in Python**  
+
+Let's explore some **advanced** topics that extend the power of `if-else` in Python.
+
+---
+
+## **1️⃣ Using Logical Operators (`and`, `or`, `not`) in `if` Conditions**
+Python allows combining multiple conditions using **logical operators**.
+
+🔹 **Example with `and`:**  
+```python
+age = 25
+citizen = True
+
+if age >= 18 and citizen:
+    print("Eligible to vote")
+else:
+    print("Not eligible to vote")
+```
+✔ **Both conditions** must be `True` for the `if` block to execute.
+
+🔹 **Example with `or`:**  
+```python
+grade = "A"
+
+if grade == "A" or grade == "B":
+    print("Passed")
+else:
+    print("Failed")
+```
+✔ If **at least one** condition is `True`, the `if` block executes.
+
+🔹 **Example with `not`:**  
+```python
+raining = False
+
+if not raining:
+    print("Go for a walk!")
+else:
+    print("Stay inside.")
+```
+✔ `not` reverses the condition (`False` becomes `True` and vice versa).
+
+---
+
+## **2️⃣ Using `if-else` Inside List Comprehensions**
+List comprehensions allow filtering elements using `if`.
+
+🔹 **Example:**
+```python
+numbers = [10, 20, 30, 40, 50]
+filtered = [num for num in numbers if num > 25]
+print(filtered)  # Output: [30, 40, 50]
+```
+
+You can also use an **`if-else` expression** inside list comprehensions:
+
+```python
+nums = [1, 2, 3, 4, 5]
+result = ["Even" if num % 2 == 0 else "Odd" for num in nums]
+print(result)  # Output: ['Odd', 'Even', 'Odd', 'Even', 'Odd']
+```
+
+---
+
+## **3️⃣ Using `match-case` (Python 3.10+) as an Alternative to `if-elif-else`**
+Python 3.10 introduced `match-case`, which is more readable for multiple conditions.
+
+🔹 **Example:**
+```python
+grade = "B"
+
+match grade:
+    case "A":
+        print("Excellent")
+    case "B":
+        print("Good")
+    case "C":
+        print("Average")
+    case _:
+        print("Failed")
+```
+✔ `match-case` is a cleaner alternative to multiple `if-elif` conditions.
+
+---
+
+## **4️⃣ Performance Considerations: When to Use `if-elif` vs. Dictionary Lookup**
+For large `if-elif` chains, **dictionary lookups** can be faster and more readable.
+
+🔹 **Example with `if-elif`:**
+```python
+def get_day_name(day_num):
+    if day_num == 1:
+        return "Monday"
+    elif day_num == 2:
+        return "Tuesday"
+    elif day_num == 3:
+        return "Wednesday"
+    else:
+        return "Invalid day"
+```
+🔹 **Better Alternative Using a Dictionary:**
+```python
+def get_day_name(day_num):
+    days = {1: "Monday", 2: "Tuesday", 3: "Wednesday"}
+    return days.get(day_num, "Invalid day")
+
+print(get_day_name(2))  # Output: Tuesday
+```
+✔ Dictionary lookup is **faster** than multiple `if-elif` checks.
+
+---
+
+## **5️⃣ Exception Handling with `if-else` and `try-except`**
+To **prevent program crashes**, you can use `if-else` with `try-except`.
+
+🔹 **Example Handling Division by Zero:**
+```python
+num = int(input("Enter a number: "))
+
+if num != 0:
+    print(10 / num)
+else:
+    print("Cannot divide by zero.")
+```
+
+🔹 **Better with `try-except`:**
+```python
+try:
+    num = int(input("Enter a number: "))
+    print(10 / num)
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+except ValueError:
+    print("Please enter a valid number.")
+```
+✔ `try-except` is **better** for handling unexpected user input.
+
+---
+
+## **6️⃣ Common Mistakes and How to Fix Them**
+### ❌ **1. Using `=` Instead of `==`**
+```python
+if age = 18:  # ❌ Wrong: This assigns instead of comparing
+    print("Adult")
+```
+✔ **Fix:** Use `==` for comparison.
+```python
+if age == 18:
+    print("Adult")  # ✅ Correct
+```
+
+### ❌ **2. Forgetting `else` (Optional but Recommended)**
+```python
+score = 85
+if score > 90:
+    print("Grade A")
+elif score > 75:
+    print("Grade B")
+# No `else`, so nothing prints if score < 75
+```
+✔ **Fix:** Always handle **all possible cases**.
+```python
+if score > 90:
+    print("Grade A")
+elif score > 75:
+    print("Grade B")
+else:
+    print("Grade C")
+```
+
+### ❌ **3. Indentation Errors**
+```python
+if True:
+print("Hello")  # ❌ Wrong: No indentation
+```
+✔ **Fix:**
+```python
+if True:
+    print("Hello")  # ✅ Correct indentation
+```
+
+---
+
+## **7️⃣ Top Interview Questions on `if-else`**
+💡 **Q1: Can `if-else` be used inside a function?**  
+✅ **Yes!** Example:
+```python
+def check_even(num):
+    if num % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+```
+
+💡 **Q2: How does Python evaluate multiple conditions in `if` statements?**  
+✅ Python evaluates from **left to right** and **short-circuits** when possible:
+```python
+if True or some_function():  # `some_function()` never runs
+    print("Executed")
+```
+
+💡 **Q3: What’s the difference between `if-elif` and multiple `if` statements?**  
+✅ `if-elif` ensures **only one condition executes**, while multiple `if` statements allow **multiple blocks to run**.
+```python
+x = 10
+if x > 5:
+    print("Greater than 5")
+if x > 8:
+    print("Greater than 8")  # Both run!
+
+# `if-elif` example:
+if x > 5:
+    print("Greater than 5")
+elif x > 8:
+    print("Greater than 8")  # Only the first true condition runs!
+```
+
+---
+
+## **8️⃣ Summary Table**
+| Feature | Description |
+|---------|-------------|
+| `if` | Executes block if condition is `True` |
+| `if-else` | Executes different blocks for `True` and `False` |
+| `if-elif-else` | Checks multiple conditions |
+| Nested `if` | `if` inside another `if` |
+| Logical Operators | `and`, `or`, `not` for multiple conditions |
+| Ternary Operator | Short-hand `if-else` |
+| match-case (Python 3.10+) | Alternative for `if-elif` |
+| Dictionary Lookup | Faster alternative for multiple `if-elif` |
+| Exception Handling | Prevents program crashes using `try-except` |
+
+---
+
+## **9️⃣ Final Thoughts**
+🔥 **Now you've mastered `if-else` in Python!** You can:  
+✅ Use **basic `if-else` and `if-elif-else`**  
+✅ Optimize using **dictionary lookups & `match-case`**  
+✅ Prevent **common mistakes & debug efficiently**  
+✅ Solve **interview questions with confidence**  
+
+
